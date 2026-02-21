@@ -15,30 +15,30 @@ This Ansible project is designed to securely configure a Debian/Ubuntu server wi
 
 1. Install requirements:
 
-```bash
-make req
-```
+    ```bash
+    make req
+    ```
 
-OR
+    OR
 
-```bash
-ansible-galaxy collection install -r collections/requirements.yaml
-```
+    ```bash
+    ansible-galaxy collection install -r collections/requirements.yaml
+    ```
 
-1. Run the playbook for the new server:
+2. Run the playbook for the new server:
 
-```bash
-make
-```
+    ```bash
+    make
+    ```
 
-OR:
+    OR:
 
-```bash
-make run
-```
+    ```bash
+    make run
+    ```
 
-OR:
+    OR:
 
-```bash
-ansible-playbook playbooks/playbook.yaml
-```
+    ```bash
+    ansible-playbook playbooks/playbook.yaml
+    ```
