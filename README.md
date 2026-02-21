@@ -19,7 +19,7 @@ This Ansible project is designed to securely configure a Debian/Ubuntu server wi
     make req
     ```
 
-    OR
+    OR:
 
     ```bash
     ansible-galaxy collection install -r collections/requirements.yaml
