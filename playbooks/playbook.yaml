@@ -1,0 +1,11 @@
+---
+- name: Secure VPS
+  hosts: vps
+  become: true
+
+  roles:
+    - base
+    - users
+    - ssh
+    - firewall
+    - fail2ban

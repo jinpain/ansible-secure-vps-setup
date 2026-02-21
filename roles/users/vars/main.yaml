@@ -1,0 +1,3 @@
+users_new_user_name: "vps"
+users_ssh_pubkey_path: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519_vps.pub') }}"
+users_ssh_root_pubkey_path: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519_vps.pub') }}"

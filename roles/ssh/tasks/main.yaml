@@ -1,0 +1,7 @@
+- name: Disable root login on password
+  ansible.builtin.include_tasks:
+    disable_root_login_on_password.yaml
+
+- name: Change ssh port
+  ansible.builtin.include_tasks:
+    change_ssh_port.yaml

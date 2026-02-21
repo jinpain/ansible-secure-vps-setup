@@ -1,0 +1,6 @@
+all:
+  children:
+    vps:
+      hosts:
+        vps1:
+          ansible_host: 94.232.46.102

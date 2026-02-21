@@ -1,0 +1,8 @@
+- name: Create user "{{ users_new_user_name }}"
+  ansible.builtin.user:
+    name: "{{ users_new_user_name }}"
+    groups: sudo
+    append: true
+    shell: /bin/bash
+    create_home: true
+    state: present
