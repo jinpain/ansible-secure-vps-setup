@@ -11,11 +11,9 @@ This Ansible project is designed to securely configure a Debian/Ubuntu server wi
 - Configuring a firewall (UFW / iptables) with allowed ports
 - Securely disabling root login with a password
 
-Run the playbook for the new server:
-
 ## Startup order
 
-- Install requirements:
+1. Install requirements:
 
 ```bash
 make req
@@ -27,7 +25,7 @@ OR
 ansible-galaxy collection install -r collections/requirements.yaml
 ```
 
-- Run the playbook for the new server:
+1. Run the playbook for the new server:
 
 ```bash
 make
