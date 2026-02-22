@@ -1,0 +1,3 @@
+[Definition]
+actionban = iptables -I fail2ban-<name> 1 -s <ip> -j DROP
+actionunban = iptables -D fail2ban-<name> -s <ip> -j DROP

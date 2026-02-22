@@ -1,7 +1,17 @@
 - name: Disable root login on password
-  ansible.builtin.include_tasks:
-    disable_root_login_on_password.yaml
+  ansible.builtin.lineinfile:
+    path: "{{ ssh_config_file }}"
+    regexp: '^#?PermitRootLogin'
+    line: "PermitRootLogin prohibit-password"
+    state: present
+    validate: "sshd -t -f %s"
+  notify: Restart sshd service
 
 - name: Change ssh port
-  ansible.builtin.include_tasks:
-    change_ssh_port.yaml
+  ansible.builtin.lineinfile:
+    path: "{{ ssh_config_file }}"
+    regexp: '^#?Port'
+    line: "Port {{ ssh_port }}"
+    state: present
+    validate: "sshd -t -f %s"
+  notify: Restart sshd service

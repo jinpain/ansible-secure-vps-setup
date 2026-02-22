@@ -1,11 +1,27 @@
-- name: Create user
-  ansible.builtin.include_tasks:
-    create_user.yaml
+- name: Create user "{{ users_new_user_name }}"
+  ansible.builtin.user:
+    name: "{{ users_new_user_name }}"
+    groups: sudo
+    append: true
+    shell: /bin/bash
+    create_home: true
+    state: present
 
-- name: Add SSH public key
-  ansible.builtin.include_tasks:
-    ssh_key.yaml
+- name: Add SSH public key for "{{ users_new_user_name }}"
+  ansible.posix.authorized_key:
+    user: "{{ users_new_user_name }}"
+    state: present
+    key: "{{ users_ssh_pubkey_path }}"
 
-- name: Allow to use sudo without password
-  ansible.builtin.include_tasks:
-    sudo_nopass.yaml
+- name: Add SSH public key for root
+  ansible.posix.authorized_key:
+    user: "root"
+    state: present
+    key: "{{ users_ssh_root_pubkey_path }}"
+
+- name: Allow to use sudo without password for "{{ users_new_user_name }}"
+  ansible.builtin.copy:
+    dest: "/etc/sudoers.d/{{ users_new_user_name }}"
+    content: "{{ users_new_user_name }} ALL=(ALL) NOPASSWD:ALL"
+    mode: '0440'
+    validate: 'visudo -cf %s'

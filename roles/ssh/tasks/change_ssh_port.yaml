@@ -1,8 +1,0 @@
-- name: Change ssh port
-  ansible.builtin.lineinfile:
-    path: "{{ ssh_config_file }}"
-    regexp: '^#?Port'
-    line: "Port {{ ssh_port }}"
-    state: present
-    validate: "sshd -t -f %s"
-  notify: Restart sshd service

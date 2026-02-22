@@ -1,4 +1,5 @@
 fail2ban_trusted_ips:
   - 127.0.0.1/8
 
-fail2ban_config_file: /etc/fail2ban/jail.local
+fail2ban_jail_local_file: "/etc/fail2ban/jail.local"
+fail2ban_iptables_multiport_local_file: "/etc/fail2ban/action.d/iptables-multiport.local"

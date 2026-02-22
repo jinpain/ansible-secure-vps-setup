@@ -6,6 +6,13 @@
 - name: Deploy fail2ban config
   ansible.builtin.template:
     src: jail.local.j2
-    dest: "{{ fail2ban_config_file }}"
+    dest: "{{ fail2ban_jail_local_file }}"
+    mode: '0644'
+  notify: Restart fail2ban
+
+- name: Deploy fail2ban DROP action
+  ansible.builtin.template:
+    src: iptables-drop.local.j2
+    dest: "{{ fail2ban_iptables_multiport_local_file }}"
     mode: '0644'
   notify: Restart fail2ban

@@ -1,11 +1,13 @@
 [DEFAULT]
 ignoreip = {{ fail2ban_trusted_ips | join(' ') }}
+
 [sshd]
 enabled = true
 logpath = /var/log/auth.log
 findtime = 10m
 maxretry = 3
 bantime = 12h
+
 [recidive]
 enabled = true
 filter = recidive
